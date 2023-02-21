@@ -16,14 +16,14 @@ Em máquinas Linux, por padrão o Compose não é instalado junto com o Docker, 
 Antes de iniciar a criação do ambiente, devemos lembrar que os dados que forem armazenados dentro do conteiner serão perdidos no momento em que o mesmo for parado. Para evitar a perda desses dados devemos criar os volumes, que são locais na sua maquina hospedeira que servirão para armazenar e transferir arquivos para o seu conteiner.
 Para a nossa aplicação, eu criei uma pasta chamada htdocs no disco C: e dentro dela eu criei um arquivo em HTML simples apenas para a demonstração.
 
-![Pasta criada para ser usada como Volume. ](/container-app-web/images/volume-host.JPG)
+![Pasta criada para ser usada como Volume. ](/images/volume-host.JPG)
 
-![Conteudo arquivo index.html](/container-app-web/images/index.JPG)
+![Conteudo arquivo index.html](/images/index.JPG)
 
 #### Arquivo YML
 Iremos agora criar um arquivo chamado **compose.yml**. Esse arquivo terá a estrutura demonstrada na imagem abaixo.
 
-![Estrutura do arquivo compose](/container-app-web/images/compose.JPG)
+![Estrutura do arquivo compose](/images/compose.JPG)
 
 Iremos iniciar informando a versão do Docker Compose instalado na sua maquina. Após isso iniciaremos a configuração dos serviços que estarão rodando no seu conteiner. No nosso caso nós nomeamos o serviço como o apache e informamos a imagem Docker a ser utilizada. Acessando ao [Docker Hub](https://hub.docker.com) você poderá ter acesso as mais variadas imagens disponiveis para serem utilizadas. No nosso caso iremos utilizar a imagem httpd que é a imagem do Apache Web Server. Após os dois-pontos(:) nós designamos a tag que iremos utilizar, que no caso seria a versão que queremos utilizar. Caso não especifiquemos qual versão queremos, ele irá buscar a versão mais recente chamada de *latest*.
 Próximo passo foi dar um nome ao container e designar as portas TCP que serão utilizadas. No caso eu estou informando que as requisições que chegarem na porta 80 (HTTP) da minha maquina hospedeira, serão redirecionadas para a porta 80 do meu conteiner
@@ -34,12 +34,12 @@ E por ultimo eu especifiquei o volume que foi o arquivo que eu criei anteriormen
 
 Para inicializar o conteiner, eu irei executar o comando `docker-compose up -d`, sendo o atributo "-d" indicado pra informar que a minha aplicação irá rodar em segundo plano
 
-![Inicialização do conteiner](/container-app-web/images/docker-compose.JPG)
+![Inicialização do conteiner](/images/docker-compose.JPG)
 
 Caso a imagem ainda não ter sido baixada anteriormente para a sua maquina, ela será e após isso o conteiner será iniciado
 
-![Conteiner em execução](/container-app-web/images/localhost.JPG)
+![Conteiner em execução](/images/localhost.JPG)
 
 Para encerrá-lo, basta digitar o comando `docker-compose down`
 
-![Conteiner desligando](/container-app-web/images/compose%20down.JPG)
+![Conteiner desligando](/images/compose%20down.JPG)
